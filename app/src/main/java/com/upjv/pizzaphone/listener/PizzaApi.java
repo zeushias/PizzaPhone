@@ -13,7 +13,7 @@ import retrofit2.http.POST;
 public interface PizzaApi {
 
     @GET("pizza/")
-    Call<Pizzas> getPizzaList();
+    Call<ArrayList<Pizzas>> getPizzaList();
 
     @POST("login/{user}")
     void postLogin();

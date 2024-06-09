@@ -40,6 +40,7 @@ public class CommandeActivity extends AppCompatActivity {
     private void bottomNavigation() {
         FloatingActionButton floatingActionButton = findViewById(R.id.card_btn);
         LinearLayout homeBtn = findViewById(R.id.homeBtn);
+        LinearLayout ConnexionBtn = findViewById(R.id.ConnexionBtn);
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +53,13 @@ public class CommandeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(CommandeActivity.this, MainActivity.class));
+            }
+        });
+
+        ConnexionBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //startActivity(new Intent(ConnexionActivity.this, MainActivity.class));
             }
         });
     }

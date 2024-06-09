@@ -52,17 +52,15 @@ public class MainActivity extends AppCompatActivity {
         dateDuJour.setText(Utils.getDate());
 
         // afficher liste de pizza
-        try {
-            fetchPizzas();
-        } catch(Exception e){
-            System.out.println(e);
-        }
+       //fetchPizzas();
+
         recyclerViewListPizza();
         bottomNavigation();
     }
     private void bottomNavigation() {
         FloatingActionButton floatingActionButton = findViewById(R.id.card_btn);
         LinearLayout homeBtn = findViewById(R.id.homeBtn);
+        LinearLayout ConnexionBtn = findViewById(R.id.ConnexionBtn);
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,19 +75,26 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, MainActivity.class));
             }
         });
+
+        ConnexionBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //startActivity(new Intent(ConnexionActivity.this, MainActivity.class));
+            }
+        });
     }
 
     private void fetchPizzas() {
         PizzaApi api = ApiClient.getClient().create(PizzaApi.class);
-        System.out.println(api);
+        System.out.println("begin");
         try {
-            Call<Pizzas> call = api.getPizzaList();
+            Call<ArrayList<Pizzas>> call = api.getPizzaList();
 
-        call.enqueue(new Callback<Pizzas>() {
+        call.enqueue(new Callback<ArrayList<Pizzas>>() {
             @Override
-            public void onResponse(Call<Pizzas> call, Response<Pizzas> response) {
+            public void onResponse(Call<ArrayList<Pizzas>> call, Response<ArrayList<Pizzas>> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    //adapter = new PopularAdapter(response.body());
+                    adapter = new PopularAdapter(response.body());
                     recyclerViewPopularList.setAdapter(adapter);
                 } else {
                     Toast.makeText(MainActivity.this, "Failed to load pizzas", Toast.LENGTH_SHORT).show();
@@ -97,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<Pizzas> call, Throwable t) {
+            public void onFailure(Call<ArrayList<Pizzas>> call, Throwable t) {
                 Toast.makeText(MainActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
