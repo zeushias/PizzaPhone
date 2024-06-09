@@ -1,0 +1,14 @@
+<resources>
+
+    <string name="app_name" translatable="false">PizzaPhone</string>
+    <string name="start" translatable="false">Start now</string>
+    <string name="settings" translatable="false">Settings</string>
+    <string name="order_now" translatable="false">Order Now</string>
+    <string name="free_delivery" translatable="false">Free delivery</string>
+    <string name="nos_pizzas" translatable="false">Nos pizzas</string>
+
+    <string name="libelle" translatable="false">Libelle</string>
+    <string name="ingredients" translatable="false">Ingrédients</string>
+    <string name="prix" translatable="false">Prix</string>
+
+</resources>
