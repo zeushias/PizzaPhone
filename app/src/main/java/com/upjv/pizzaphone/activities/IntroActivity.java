@@ -17,10 +17,11 @@ public class IntroActivity extends AppCompatActivity {
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // appel de l'activité
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
 
-
+        // ouverture du main activity
         startBtn = findViewById(R.id.startbtn);
         startBtn.setOnClickListener(new View.OnClickListener() {
             @Override

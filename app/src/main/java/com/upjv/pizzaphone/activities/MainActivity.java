@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // appel de l'activité
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
@@ -62,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout homeBtn = findViewById(R.id.homeBtn);
         LinearLayout ConnexionBtn = findViewById(R.id.ConnexionBtn);
 
+        // bouton panier
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // bouton home
         homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // bouton connexion
         ConnexionBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void fetchPizzas() {
+
         PizzaApi api = ApiClient.getClient().create(PizzaApi.class);
         System.out.println("begin");
         try {

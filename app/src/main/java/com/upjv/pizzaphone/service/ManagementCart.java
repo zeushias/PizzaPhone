@@ -18,6 +18,7 @@ public class ManagementCart {
     }
 
     public void insertFood(Pizzas item) {
+        // ajout des pizzas dans le panier
         ArrayList<Pizzas> listCommande = getListCard();
         boolean existAlready = false;
         int n = 0;
@@ -45,11 +46,13 @@ public class ManagementCart {
     }
 
     public void plusNumberFood(ArrayList<Pizzas> listCommande, int position, ChangeNumberItemsListener changeNumberItemsListener) {
+        // appuie sur le bouton plus
         listCommande.get(position).setNumberInCart(listCommande.get(position).getNumberInCart() + 1);
         tinyDB.putListObject("CardList", listCommande);
         changeNumberItemsListener.changed();
     }
 
+    // appuie sur le bouton moins
     public void MinusNumerFood(ArrayList<Pizzas> listCommande, int position, ChangeNumberItemsListener listener) {
         if (listCommande.get(position).getNumberInCart() == 1) {
             listCommande.remove(position);
@@ -60,6 +63,7 @@ public class ManagementCart {
         listener.changed();
     }
 
+    // calcul total de prix
     public Double getTotalFee() {
         ArrayList<Pizzas> listCommande = getListCard();
         double fee = 0;

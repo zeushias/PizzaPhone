@@ -14,6 +14,8 @@ public class Commandes {
 
     private List<Pizzas> pizzas;
 
+    private int idUtilisateur;
+
     public Commandes(){}
 
     public Commandes(Double total, String time, String reference, List<Pizzas> pizzas) {
@@ -21,6 +23,14 @@ public class Commandes {
         this.time = time;
         this.reference = reference;
         this.pizzas = pizzas;
+    }
+
+    public int getIdUtilisateur() {
+        return idUtilisateur;
+    }
+
+    public void setIdUtilisateur(int idUtilisateur) {
+        this.idUtilisateur = idUtilisateur;
     }
 
     public Integer getIdCommande() {

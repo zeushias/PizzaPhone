@@ -22,9 +22,11 @@ public class ShowDetailActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // appel de l'activité
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_detail);
 
+        // appel de la classe ManagementCart
         managementCart = new ManagementCart(this);
 
         initView();
@@ -45,6 +47,7 @@ public class ShowDetailActivity extends AppCompatActivity {
         ingredientsTxt.setText(object.getIngredients());
         numberOrderTxt.setText(String.valueOf(numberOrder));
 
+        // bouton plus
         plusBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,6 +56,7 @@ public class ShowDetailActivity extends AppCompatActivity {
             }
         });
 
+        // bouton moins
         minusBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,6 +67,7 @@ public class ShowDetailActivity extends AppCompatActivity {
             }
         });
 
+        // bouton ajouter au panier
         addToCardBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,6 +78,7 @@ public class ShowDetailActivity extends AppCompatActivity {
     }
 
     private void initView() {
+        // initialisation
         addToCardBtn = findViewById(R.id.addToCardBtn);
         libelleTxt = findViewById(R.id.libelleTxt);
         prixTxt = findViewById(R.id.prixTxt);

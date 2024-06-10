@@ -64,6 +64,7 @@ public class CommandeActivity extends AppCompatActivity {
         });
     }
     private void initList() {
+        // initialisation de la liste
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerViewList.setLayoutManager(linearLayoutManager);
         adapter = new CommandeAdapter(managementCart.getListCard(), this, new ChangeNumberItemsListener() {
@@ -84,6 +85,7 @@ public class CommandeActivity extends AppCompatActivity {
     }
 
     private void calculateCard() {
+        //
         double percentTax = 0.02;
         double delivery = 10;
 
@@ -91,13 +93,14 @@ public class CommandeActivity extends AppCompatActivity {
         double total = Math.round((managementCart.getTotalFee() + tax + delivery) * 100.0) / 100.0;
         double itemTotal = Math.round(managementCart.getTotalFee() * 100.0) / 100.0;
 
-        totalFeeTxt.setText("$" + itemTotal);
-        taxTxt.setText("$" + tax);
-        deliveryTxt.setText("$" + delivery);
-        totalTxt.setText("$" + total);
+        totalFeeTxt.setText("€" + itemTotal);
+        taxTxt.setText("€" + tax);
+        deliveryTxt.setText("€" + delivery);
+        totalTxt.setText("€" + total);
     }
 
     private void initView() {
+        // initialisation
         recyclerViewList = findViewById(R.id.recyclerview);
         totalFeeTxt = findViewById(R.id.totalFeeTxt);
         taxTxt = findViewById(R.id.taxTxt);
